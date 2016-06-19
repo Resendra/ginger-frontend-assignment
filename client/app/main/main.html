@@ -1,0 +1,58 @@
+<div layout="row" class="page-wrapper" ng-cloak ng-switch="viewMode">
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="true" md-disable-backdrop md-whiteframe="4">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Methods</h1>
+        </md-toolbar>
+        <md-content layout="column">
+            <a class="md-button md-ink-ripple" ng-click="doFirstExercise()">
+                        Callback
+                </a>
+            <a class="md-button md-ink-ripple" ng-click="doSecondExercise()">
+                        Promise
+                </a>
+            <a class="md-button md-ink-ripple" ng-click="doThirdExercise()">
+                        Filter Payment-Method
+                </a>
+            <a class="md-button md-ink-ripple" ng-click="doFourthExercise()">
+                        Add payment
+                </a>
+        </md-content>
+    </md-sidenav>
+
+    <md-sidenav class="md-sidenav-right" md-component-id="right">
+        <ginger-filterpanel filters="filters" close="closeFilterPanel()"></ginger-filterpanel>
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+        <div layout="row" layout-align="start center">
+            <div flex>
+                <md-button class="md-fab md-mini md-primary" title="Grid View" aria-label="Grid" ng-click="setViewMode('grid');" ng-disabled="viewMode === 'grid'">
+                    <span><i class="fa fa-columns"></i></span>
+                </md-button>
+                <md-button class="md-fab md-mini md-primary" title="Grid List View" aria-label="Grid List" ng-click="setViewMode('grid-list');" ng-disabled="viewMode === 'grid-list'">
+                    <span><i class="fa fa-th"></i></span>
+                </md-button>
+            </div>
+            <div layout="row">
+                <md-button class="md-fab md-mini md-primary" aria-label="Filter" ng-click="openFilterPanel();">
+                    <span><i class="fa fa-filter"></i></span>
+                </md-button>
+            </div>
+        </div>
+
+        <div ng-switch-when="grid" class="grid-container">
+            <h2>Payments</h2>
+            <div class="payment-grid" ui-grid="{data: payments}"></div>
+        </div>
+
+        <div ng-switch-when="grid-list" layout="column" flex>
+            <h2>Payments</h2>
+            <div layout="row" layout-wrap>
+                <div ng-repeat="payment in payments" flex-xs flex-gt-xs flex-gt-sm="50" flex-gt-md="33" flex-gt-lg="25">
+                    <ginger-payment-card payment="payment"></ginger-payment-card>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

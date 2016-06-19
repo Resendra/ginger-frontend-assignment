@@ -1,0 +1,6 @@
+.grid-container {
+    height: calc(100% - 150px);
+}
+.payment-grid {
+    height: 100%;
+}

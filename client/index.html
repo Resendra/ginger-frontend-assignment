@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <base href="/">
+    <title>Ginger Payments - Frontend Assignment</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" href="bower_components\font-awesome\css\font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css">
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/main/main.css">
+    <link rel="stylesheet" href="app/main/add-payment/add-payment.css">
+    <link rel="stylesheet" href="components/filterpanel/filterpanel.css">
+    <link rel="stylesheet" href="components/ui-components/payment-card/payment-card.css">
+</head>
+
+<body ng-app="gingerApp">
+
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+    <!-- <navbar></navbar> -->
+    <div ui-view="" class="page-wrapper"></div>
+
+    <!-- Bower Components -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+
+    <!-- Components -->
+    <script src="components/filterpanel/filterpanel.directive.js"></script>
+    <script src="components/ui-components/payment-card/payment-card.directive.js"></script>
+    <script src="components/payments/payments.service.js"></script>
+    <script src="components/utils/utils.service.js"></script>
+    <script src="components/filters/filter-by-property/filter-by-property.filter.js"></script>
+
+    <!-- Controllers and Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/main/main.js"></script>
+    <script src="app/main/main.controller.js"></script>
+    <script src="app/main/add-payment/add-payment.controller.js"></script>
+
+</body>
+
+</html>

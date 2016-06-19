@@ -1,0 +1,21 @@
+<md-toolbar>
+    <h1 class="md-toolbar-tools">Filter Panel</h1>
+</md-toolbar>
+<md-content layout-padding>
+    <form layout="row" layout-align="center center">
+        <md-input-container>
+            <label for="paymentMethod">Payment Method</label>
+            <md-select ng-model="filters.method" multiple md-autofocus>
+                <md-option ng-value="paymentMethod.value" ng-repeat="paymentMethod in paymentMethods">{{paymentMethod.name}}</md-option>
+            </md-select>
+        </md-input-container>
+    </form>
+    <div layout="row" layout-align="start center">
+        <md-button ng-click="clear()" class="md-primary">
+            Clear Filters
+        </md-button>
+        <md-button ng-click="close()" class="md-primary">
+            Close Panel
+        </md-button>
+    </div>
+</md-content>

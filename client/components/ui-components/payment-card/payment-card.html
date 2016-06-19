@@ -1,0 +1,26 @@
+<md-card class="payment">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline" ng-bind="payment.merchant"></span>
+            <span class="md-subhead" ng-bind="payment.created"></span>
+            <div class="md-text">
+                <span ng-bind="payment.amount"></span>
+                <span ng-bind="payment.currency"></span>
+            </div>
+            <div class="md-text">
+                <span ng-bind="payment.status"></span>
+            </div>
+            <div class="md-text">
+                <span ng-bind="payment.method"></span>
+            </div>
+
+        </md-card-title-text>
+        <md-card-title-media>
+            <div class="md-media-md card-media"></div>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button>Archive</md-button>
+        <md-button>Delete</md-button>
+    </md-card-actions>
+</md-card>

@@ -1,0 +1,45 @@
+<md-dialog flex="50">
+    <md-title layout="row" layout-padding>
+        <h4>Add Payment</h4>
+    </md-title>
+    <form name="addPaymentForm" ng-submit="ok()">
+        <md-dialog-content class="add-payment-modal-content" layout="column" layout-padding>
+            <md-input-container>
+                <label>Merchant</label>
+                <input name="paymentMerchant" aria-label="Merchant" ng-model="payment.merchant" autofocus="true" required>
+                <div class="form-error" ng-messages="addPaymentForm.paymentMerchant.$error">
+                    <div ng-message="required">This is required!</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Amount</label>
+                <input type="number" name="paymentAmount" aria-label="Amount" ng-model="payment.amount" required>
+                <div class="form-error" ng-messages="addPaymentForm.paymentAmount.$error">
+                    <div ng-message="required">This is required!</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Currency</label>
+                <input name="paymentCurrency" aria-label="Currency" ng-model="payment.currency" required>
+                <div class="form-error" ng-messages="addPaymentForm.paymentCurrency.$error">
+                    <div ng-message="required">This is required!</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Payment Method</label>
+                <md-select name="paymentMethod" ng-model="payment.method" md-autofocus required>
+                    <md-option ng-value="paymentMethod.value" ng-repeat="paymentMethod in paymentMethods">{{paymentMethod.name}}</md-option>
+                </md-select>
+                <div class="form-error" ng-messages="addPaymentForm.paymentMethod.$error">
+                    <div ng-message="required">This is required!</div>
+                </div>
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <md-button class="md-raised md-primary" type="submit">Add
+            </md-button>
+            <md-button class="md-raised" type="button" ng-click="cancel()">Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
