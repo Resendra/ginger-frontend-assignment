@@ -6,7 +6,7 @@ For the HTTP-server:
 ```
 npm start
 ```
-It will run npm install & bower install automatically and start the server at your local adress: localhost:8080
+It will run npm install & bower install automatically and start the server at your local adress: [localhost:8080](http://localhost:8080)
 
 For the JSON-server:
 ```
