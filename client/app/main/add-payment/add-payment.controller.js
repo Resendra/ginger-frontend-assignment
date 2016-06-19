@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gingerApp')
+angular.module('gingerApp.addPayment', ['ngMaterial', 'gingerApp.payments', 'gingerApp.utils'])
     .controller('AddPaymentCtrl', function($scope, $mdDialog, Payments, Utils) {
 
         $scope.payment = {};

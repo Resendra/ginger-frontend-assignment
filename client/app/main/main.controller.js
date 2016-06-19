@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gingerApp')
+angular.module('gingerApp.main', ['ui.router', 'ngMaterial', 'gingerApp.payments', 'gingerApp.utils', 'gingerApp.filters'])
     .controller('MainCtrl', function($scope, $state, $mdSidenav, Payments, Utils, $filter) {
 
         var handleError = Utils.handleError;

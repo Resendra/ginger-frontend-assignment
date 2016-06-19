@@ -5,10 +5,10 @@ angular.module('gingerApp.payments', ['gingerApp.utils'])
         var payments,
             paymentsUrl,
             paymentMethods,
-            isDefined,
             handleOptionsError,
             getURLWithOptions;
 
+        payments = [];
         paymentsUrl = 'http://localhost:3000/payments';
 
         paymentMethods = [{
@@ -22,54 +22,9 @@ angular.module('gingerApp.payments', ['gingerApp.utils'])
             'value': 'banktransfer'
         }];
 
-        isDefined = angular.isDefined;
+        handleOptionsError = Utils.handleOptionsError;
 
-        handleOptionsError = function() {
-            console.log("Error: you provide wrong options for your payment");
-        };
-
-        getURLWithOptions = function(options) {
-            var url = angular.copy(paymentsUrl),
-                hasOptions = false,
-                getPrefix;
-
-            getPrefix = function() {
-                if (!hasOptions) {
-                    hasOptions = true;
-                    return '?';
-                } else {
-                    return '&';
-                }
-            };
-
-            if (isDefined(options)) {
-                if (isDefined(options.sort)) {
-                    if (isDefined(options.sort.property)) {
-                        url = url.concat(getPrefix(), '_sort=', options.sort.property);
-
-                        if (isDefined(options.sort.order) && (options.sort.order === 'DESC' || options.sort.order === 'ASC')) {
-                            url = url.concat('&_order=', options.sort.order);
-                        }
-                    } else {
-                        handleOptionsError();
-                    }
-                }
-
-                if (isDefined(options.filter)) {
-                    if (isDefined(options.filter.property) && isDefined(options.filter.value)) {
-                        url = url.concat(getPrefix(), options.filter.property, '=', options.filter.value);
-                    } else {
-                        handleOptionsError();
-                    }
-                }
-
-                if (isDefined(options.size)) {
-                    url = url.concat(getPrefix(), '_limit=', options.size);
-                }
-            }
-
-            return url;
-        };
+        getURLWithOptions = Utils.getURLWithOptions;
 
         return {
             getPayments: function() {
@@ -102,7 +57,7 @@ angular.module('gingerApp.payments', ['gingerApp.utils'])
                     cb = callback || angular.noop,
                     url;
 
-                url = getURLWithOptions(options);
+                url = getURLWithOptions(options, paymentsUrl);
 
                 $http.get(url)
                     .success(function(data) {
@@ -111,7 +66,7 @@ angular.module('gingerApp.payments', ['gingerApp.utils'])
                         deferred.resolve(data);
                     })
                     .error(function(error) {
-                        cb(error, data);
+                        cb(error, []);
                         deferred.reject(error);
                     });
 

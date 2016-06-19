@@ -1,5 +1,6 @@
-# How to run
+# How to run & test
 
+## Run
 In order to make it work, you need to run two different consoles, one for the JSON-server (which serves payment data) and another one for the HTTP-server (which serves our files):
 
 For the HTTP-server:
@@ -15,6 +16,11 @@ npm install && npm run start:api
 If you've already launched npm start before, every files served by npm have been already installed, so you can just start the JSON-server with :
 ```
 npm run start:api
+```
+## Test
+Unit tests have been added to the project (with Karma/Jasmine), to start them, just use the following:
+```
+npm test
 ```
 
 # Ginger Payments Frontend Assignment

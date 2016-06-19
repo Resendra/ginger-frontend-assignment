@@ -9,9 +9,8 @@ describe('Service: utils', function() {
     var Utils,
         $mdToast;
 
-    beforeEach(inject(function(_Utils_, _$rootScope_, _$mdToast_) {
+    beforeEach(inject(function(_Utils_, _$mdToast_) {
         Utils = _Utils_;
-        $rootScope = _$rootScope_;
         $mdToast = _$mdToast_;
     }));
 

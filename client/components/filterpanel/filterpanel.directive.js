@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gingerApp.filterpanel', [])
+angular.module('gingerApp.filterpanel', ['ngMaterial', 'gingerApp.payments', 'gingerApp.utils'])
     .directive('gingerFilterpanel', function(Payments, Utils, $mdSidenav) {
         return {
             templateUrl: 'components/filterpanel/filterpanel.html',
@@ -23,7 +23,7 @@ angular.module('gingerApp.filterpanel', [])
 
                 scope.clear = function() {
                     scope.filters = {};
-                }
+                };
             }
         };
     });

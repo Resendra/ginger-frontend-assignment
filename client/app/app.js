@@ -4,6 +4,8 @@ angular.module('gingerApp', [
         'ui.router',
         'ngMaterial',
         'ui.grid',
+        'gingerApp.main',
+        'gingerApp.addPayment',
         'gingerApp.filterpanel',
         'gingerApp.paymentCard',
         'gingerApp.payments',
